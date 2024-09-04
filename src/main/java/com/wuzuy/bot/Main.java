@@ -1,5 +1,6 @@
 package com.wuzuy.bot;
 
+import com.wuzuy.bot.commands.BroadcastCommand;
 import com.wuzuy.bot.commands.RegisterCommand;
 import com.wuzuy.bot.listeners.AfterJoinListener;
 import com.wuzuy.bot.listeners.AfterLeaveListener;
@@ -19,6 +20,7 @@ public class Main {
 
         jda.addEventListener(
                 new RegisterCommand(),
+                new BroadcastCommand(),
 
 
                 new AfterLeaveListener(),
