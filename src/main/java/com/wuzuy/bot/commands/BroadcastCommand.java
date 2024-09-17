@@ -22,8 +22,9 @@ public class BroadcastCommand extends ListenerAdapter {
         if (args.length < 2 || !args[0].equalsIgnoreCase("wz.broadcast")) {
             return; // Não é um comando válido
         }
-        if (Objects.requireNonNull(event.getMember()).getId().equalsIgnoreCase("318822785063583744")) return;
-
+        if (!Objects.requireNonNull(event.getMember()).getId().equalsIgnoreCase("318822785063583744")) {
+            return;
+        }
         String message = args[1]; // Mensagem para enviar
 
         if (message.isEmpty()) {
@@ -44,6 +45,7 @@ public class BroadcastCommand extends ListenerAdapter {
             // Envia mensagens diretas em lotes para evitar rate limits
             sendDirectMessagesInBatches(filteredMembers, message);
         }).onError(throwable -> logger.error("Falha ao carregar membros", throwable));
+
     }
 
     private void sendDirectMessagesInBatches(List<Member> members, String message) {
