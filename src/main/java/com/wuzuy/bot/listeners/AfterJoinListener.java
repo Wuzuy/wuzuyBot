@@ -36,7 +36,7 @@ public class AfterJoinListener extends ListenerAdapter {
                         Data de criação: %s
                         """.formatted(event.getMember().getAsMention(), event.getMember().getId(),
                         event.getUser().getTimeCreated().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))),
-
                 event.getMember().getEffectiveAvatarUrl())).queue();
+
     }
 }
